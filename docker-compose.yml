@@ -1,0 +1,12 @@
+version: '3'
+services:
+    php-apache:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./app/public:/var/www/html
+            - ./configs/custom-apache2.conf:/etc/apache2/apache2.conf
+            - ./configs/custom-php.ini:/usr/local/etc/php/php.ini
+        ports:
+            - "8088:80"
