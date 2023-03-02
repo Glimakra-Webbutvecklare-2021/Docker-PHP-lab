@@ -175,6 +175,58 @@ render_user_presentation($one_user);
 
 ?>
 
+<h3>Ett sätt att använda multidimensionell array för att skifta språk</h3>
+
+<?php
+
+// skapa en array med standardspråk
+$english = [
+    "name" => "Name",
+    "save" => "Save",
+    "reset" => "Reset",
+    "welcome" => "Hello! Please write your name"
+];
+
+// fler språk - använd samma key!
+$swedish = [
+    "name" => "Namn",
+    "save" => "Spara",
+    "reset" => "Nollställ",
+    "welcome" => "Hej! Ange uppgidfterna nedan"
+];
+
+$norwegian = [
+    "name" => "Navn",
+    "save" => "Lagre",
+    "reset" => "Nullstille",
+    "welcome" => "Hei, skriv navnet ditt"
+];
+
+// bestäm språk - med: en | sv | ... 
+$language = "no";
+
+// skapa en array av språken
+$languages = [
+    "en" => $english,
+    "sv" => $swedish,
+    "no" => $norwegian
+]
+
+?>
+
+
+<h3><?= $languages[$language]['welcome'] ?></h3>
+<input type="text" name="name" id="name" placeholder="<?= $languages[$language]['name'] ?>">
+<input type="reset" value="<?= $languages[$language]['reset'] ?>">
+<button><?= $languages[$language]['save'] ?></button>
+
+
+
+
+
+
+
+
 
 
 

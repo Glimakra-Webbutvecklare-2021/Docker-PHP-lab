@@ -12,6 +12,7 @@
 <body>
     <header>
         <a href="/">Tillbaka till startsidan</a> | 
-        <a href="/learn">Learn</a>
+        <a href="/learn">Learn</a> | 
+        <a href="<?= $_SERVER['PHP_SELF'] ?>">Ladda om</a> |
     </header>
     <hr>
