@@ -85,6 +85,101 @@ print_r2($odd_numbers);
 
 ?>
 
+<h3>Sortera en array med ex sort(), rsort()</h3>
+
+<?php
+
+echo "Sorterad array numbers:";
+sort($numbers);
+print_r2($numbers);
+
+?>
+
+
+<h3>Unika värden med array_unique()</h3>
+
+<?php
+$unique_numbers = array_unique($numbers);
+
+echo "Unika värden:";
+print_r2($unique_numbers);
+
+?>
+
+<h2>Associative arrays</h2>
+
+<h3>En dimensionella</h3>
+
+<?php
+
+// skriv Hello på önskat språk
+$hello = [
+    "sv" => "Hej",
+    "en" => "Hi",
+    "fr" => "Salut"
+];
+
+print_r2($hello['fr']);
+
+// en iteration 
+foreach ($hello as $key => $value) {
+    # code...
+    // print_r2($value);
+    echo "$key: $value <br>";
+}
+
+?>
+
+<h3>Fler värden i en associative array - två dimensionell array</h3>
+
+<?php
+$users = [
+    ["name" => "Flisa", "tool" => "kvist"],
+    ["name" => "Sten", "tool" => "sten"],
+    ["name" => "Knota", "tool" => "eld"]
+];
+
+// foreach
+foreach ($users as $key => $user) {
+    # code...
+
+    // använd var_dump för att se datatyp och info om ...
+    // var_dump($user);
+    print_r2($user);
+}
+
+// visa ett värde
+echo $users[0]['tool'];
+
+// en funktion som presenterar en stenålderskaraktär
+function get_user($users, $user)
+{
+    // filter_array returnerat ett resultat
+    $result = array_filter($users, function($name) use ($user) {return $name['name'] === $user;});
+
+    return array_merge(...$result);
+}
+
+// anropa funktionen
+$one_user = get_user($users, "Flisa");
+
+// print_r2($one_user);
+
+function render_user_presentation($user)
+{
+    echo $user['name'] . " använder gärna " . $user['tool'];
+}
+
+
+render_user_presentation($one_user);
+
+?>
+
+
+
+
+<h3>Tips att testa: array_rand(), in_array()</h3>
+
 
 
 <!-- footer -->
