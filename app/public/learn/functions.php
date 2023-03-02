@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 
+// inludera filer som ex globala funktioner
+include("_includes/global-functions.php");
+
+
 $title = "Funktioner";
 include "_includes/pre.php";
 ?>
@@ -63,7 +67,7 @@ function calculate_total(int $price, int $amount): int
 
 
 //  testa funktionen
-$total = calculate_total(4, 103);
+$total = calculate_total(7, 103);
 
 // presentera summan
 echo "Kostnad: $total";
@@ -83,7 +87,6 @@ function is_number($x)
     // retunera true | false
     return ($x >= 0 && $x <= 1000);
 }
-
 
 
 ?>
