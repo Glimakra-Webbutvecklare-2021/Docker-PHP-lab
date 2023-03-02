@@ -192,7 +192,7 @@ $swedish = [
     "name" => "Namn",
     "save" => "Spara",
     "reset" => "Nollställ",
-    "welcome" => "Hej! Ange uppgidfterna nedan"
+    "welcome" => "Hej! Ange uppgifterna nedan"
 ];
 
 $norwegian = [
@@ -203,6 +203,7 @@ $norwegian = [
 ];
 
 // bestäm språk - med: en | sv | ... 
+// den här variabeln kan hanteras en en session
 $language = "no";
 
 // skapa en array av språken
@@ -214,6 +215,7 @@ $languages = [
 
 ?>
 
+<hr>
 
 <h3><?= $languages[$language]['welcome'] ?></h3>
 <input type="text" name="name" id="name" placeholder="<?= $languages[$language]['name'] ?>">
@@ -224,6 +226,16 @@ $languages = [
 
 
 
+
+<?php
+
+foreach ($_SERVER as $key => $value) {
+    # code...
+    // echo "$key : $value <br>"; 
+}
+
+
+?>
 
 
 
