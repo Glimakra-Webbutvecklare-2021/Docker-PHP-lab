@@ -109,6 +109,18 @@ function print_tree1($a, int $parent_id = 0, $rounds = 0)
 // se om ni kan skapa en funktion som istället skriver trädet som en ul li lista
 
 
+function print_ul_li($a, int $parent_id = 0)
+{
+    // skapa ett ul element
+    foreach ($a as $item) {
+        if ($item['parent_id'] === $parent_id) {
+            // skapa li element med title....
+            // echo $item['title'] . "<br>";
+            print_ul_li($a, $item['id']);
+        }
+    }
+    // stäng ul element
+}
 
 
 
