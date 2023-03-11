@@ -108,20 +108,27 @@ function print_tree1($a, int $parent_id = 0, $rounds = 0)
 // uppgift
 // se om ni kan skapa en funktion som istället skriver trädet som en ul li lista
 
+// ett förslag på funktion...
+// funktionen skapar ul element även om det inte finns child li element (giltig validering)
+// typ 
+// <li>Ribston<ul></ul>
+// </li>
 
+// för att undvika det kan man ex använda str_replace() 
+// förutsatt att funktionen inte använder echo utan lagrar listan i en sträng innan output...
 function print_ul_li($a, int $parent_id = 0)
 {
-    // skapa ett ul element
+    echo "<ul>";
     foreach ($a as $item) {
         if ($item['parent_id'] === $parent_id) {
-            // skapa li element med title....
-            // echo $item['title'] . "<br>";
+            echo "<li>";
+            echo $item['title'];
             print_ul_li($a, $item['id']);
+            echo "</li>";
         }
     }
-    // stäng ul element
+    echo "</ul>";
 }
-
 
 
 // random array med shuffle()
@@ -134,6 +141,9 @@ echo "Antal iterationer innan: $counter <br>";
 print_tree1($categories, 0);
 echo "Antal iterationer efter: $counter <br>";
 
+
+echo "<h3>Print ul-li</h3>";
+print_ul_li($categories, 0);
 
 ?>
 
